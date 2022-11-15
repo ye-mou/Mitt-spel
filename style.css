@@ -3,3 +3,37 @@
     padding: 0;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+.knapp{
+    height: 50px;
+    width: 150px;
+    color: rgb(8, 8, 8);
+    background-color: rgb(133, 91, 171);
+    font-size: larger;
+  
+
+}
+
+body{
+    background-color: rgb(123, 189, 159);
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vw;
+  
+
+}
+
+.boxen{
+    width: 800px;
+    max-width: 80%;
+    background-color: azure;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 20px 20px 50px 15px grey;
+
+}
+
