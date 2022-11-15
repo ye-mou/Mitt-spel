@@ -10,8 +10,13 @@
     color: rgb(8, 8, 8);
     background-color: rgb(133, 91, 171);
     font-size: larger;
+    border: 5px solid hsl(358, 85%, 41%);
   
 
+}
+
+.knapp:hover{
+    border-color: rgb(10, 100, 74);
 }
 
 body{
