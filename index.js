@@ -11,7 +11,11 @@ function startGame(){
 
 }
 
-function showTextNode(TesxtNodeIndex){
+function showTextNode(TextNodeIndex){
+    const textNode = textNodes.find(textNode => textNode.id ===
+        TextNodeIndex)
+        textElement.innerText = textNode.text
+
 
 }
 
@@ -23,7 +27,23 @@ const textNodes = [
     {
         id:1
         text: 'Du måste se att detta inte ör något som vi har koka'
-        
+        options:[
+            {
+                text:'Ta pillret',
+                setState:{blueGoo: true}
+                nextText:2
+
+                
+            },
+            {
+                text:'Lämna den',
+                nextText: 2
+            }
+        ]
+
+    },
+    {
+        id:2
     }
 ]
 
