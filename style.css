@@ -1,22 +1,22 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.knapp{
+.btn{
     height: 50px;
-    width: 150px;
+    width: 206px;
     color: rgb(8, 8, 8);
     background-color: rgb(133, 91, 171);
-    font-size: larger;
     border: 5px solid hsl(358, 85%, 41%);
+ 
   
 
 }
 
-.knapp:hover{
-    border-color: rgb(10, 100, 74);
+#text{
+    padding: 5px;
+    margin: 5px;
 }
 
 body{
@@ -27,18 +27,32 @@ body{
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 100vw;
+    height: 59vw;
   
 
 }
 
-.boxen{
+.container{
     width: 800px;
     max-width: 80%;
     background-color: azure;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 27px;
+    border-radius: 30px;
     box-shadow: 20px 20px 50px 15px grey;
 
 }
 
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat( 2,auto);
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: space-around;
+
+}
+
+
+
+.btn:hover{
+    border-color: rgb(10, 100, 74);
+}
