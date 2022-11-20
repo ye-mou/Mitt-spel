@@ -22,10 +22,10 @@ function VisaTextNode(textNodeIndex) {
 
   textVal.options.forEach(option => {
     if (showOption(option)) {
-      const button = document.createElement('button')
+      const button = document.createElement('button') //Skapa en ny knapp och sätt ny knapp = button
       button.innerText = option.text
       button.classList.add('btn')
-      button.addEventListener('click', () => selectOption(option))
+      button.addEventListener('click', () => selectOption(option))//Lyssnar på funktionen rad 40/"select option"
       KnappVal.appendChild(button)
     }
   })
