@@ -1,30 +1,37 @@
+
 const textElement = document.getElementById('text')
-const optionButtonsElement = document.getElementById('option-buttons')
+const KnappVal = document.getElementById('option-buttons')
 
 let state = {}
 
 function startGame() {
   state = {}
-  showTextNode(1)
+  VisaTextNode(1)
 }
 
-function showTextNode(textNodeIndex) {
-  const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
-  textElement.innerText = textNode.text
-  while (optionButtonsElement.firstChild) {
-    optionButtonsElement.removeChild(optionButtonsElement.firstChild)
+function VisaTextNode(textNodeIndex) {
+  const textVal = textNodes.find(textVal => textVal.id === textNodeIndex)
+  textElement.innerText = textVal.text //Ändra till att visa text i våra textNodes
+  
+  /***
+   * För att ta bort "överflödiga alternativ = knappar, buttons"
+   */
+  while (KnappVal.firstChild) {
+    KnappVal.removeChild(KnappVal.firstChild)
   }
 
-  textNode.options.forEach(option => {
+  textVal.options.forEach(option => {
     if (showOption(option)) {
       const button = document.createElement('button')
       button.innerText = option.text
       button.classList.add('btn')
       button.addEventListener('click', () => selectOption(option))
-      optionButtonsElement.appendChild(button)
+      KnappVal.appendChild(button)
     }
   })
 }
+
+
 
 function showOption(option) {
   return option.requiredState == null || option.requiredState(state)
@@ -36,7 +43,7 @@ function selectOption(option) {
     return startGame()
   }
   state = Object.assign(state, option.setState)
-  showTextNode(nextTextNodeId)
+  VisaTextNode(nextTextNodeId)
 }
 
 const textNodes = [
@@ -46,11 +53,12 @@ const textNodes = [
     options: [
       {
         text: 'Ta svärdet',
-        setState: { blueGoo: true },
+        setState: { sword: true },
         nextText: 2
       },
       {
         text: 'Ta spjutet',
+        setState: { spjut: true },
         nextText: 2
       }
     ]
@@ -62,13 +70,13 @@ const textNodes = [
       {
         text: 'Byt svärdet mot guld och diamanter',
         requiredState: (currentState) => currentState.blueGoo,
-        setState: { blueGoo: false, sword: true },
+        setState: { sword: false, spjut: false , guld:true},
         nextText: 3
       },
       {
         text: 'Byt spjutet mot guld och diamanter',
         requiredState: (currentState) => currentState.blueGoo,
-        setState: { blueGoo: false, shield: true },
+        setState: { sword: false, guld: true },
         nextText: 3
       },
       {
@@ -135,17 +143,17 @@ const textNodes = [
       },
       {
         text: 'Släng guld på den',
-        requiredState: (currentState) => currentState.sword,
+        requiredState: (currentState) => currentState.guld,
         nextText: 9
       },
       {
         text: 'Slåss med ditt svärd',
-        requiredState: (currentState) => currentState.shield,
+        requiredState: (currentState) => currentState.sword,
         nextText: 10
       },
       {
         text: 'Kasta ditt sput mot monstret och försök träffa hjärtat',
-        requiredState: (currentState) => currentState.blueGoo,
+        requiredState: (currentState) => currentState.spjut,
         nextText: 11
       }
     ]
@@ -162,7 +170,7 @@ const textNodes = [
   },
   {
     id: 9,
-    text: 'Du trodde att ditt svärd kunde skydda dig. Du svingar för långsamt och monstret åt upp digYou foolishly thought this monster could be slain with a single sword.',
+    text: 'Du trodde att ditt svärd kunde skydda dig. Du svingar för långsamt och monstret åt upp dig.',
     options: [
       {
         text: 'Börja om',
@@ -172,7 +180,7 @@ const textNodes = [
   },
   {
     id: 10,
-    text: 'Monstret satt och tittade på dig när du slängde ditt gild på den och åt upp dig sen.',
+    text: 'Monstret satt och tittade på dig och åt upp dig sen.',
     options: [
       {
         text: 'Börja om',
