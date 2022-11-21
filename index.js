@@ -3,12 +3,15 @@
  * @author Yehad Moussaoui <yehad.moussaoui@gmail.com>
  */
 const textElement = document.getElementById('text')
+/**
+ * 
+ */
 const KnappVal = document.getElementById('option-buttons')
 
 let state = {}
 
 /***
- * @function myFunction - start the game
+ * @function startGame - start the game
  */
 function startGame() {
   state = {}
@@ -69,7 +72,7 @@ function selectOption(option) {
 
 /***
  * @constant {number}  - val för olika alternativ
- * @param  {boolean} - Testar vilket state - sword, spjut
+ * @param  {boolean} - Testar vilket state man har valt- sword=svärd eller spjut
  */
 const textNodes = [
   {
