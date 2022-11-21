@@ -21,5 +21,5 @@ Det har varit lärorikt att göra projektet men väldigt utmanande.
 DU väljer ett vapen som du sedan har med dig i nästa scen. Ditt mål är att klara dig genom hela spelat och utmana monstret med rätt vapen. Det finns en **känd bugg i spelet som gör att när du möter draken har du bara ett alternativ**. Du kan inte byta ditt vapen mot guld
 
 **Enjoy the game**
-:smiley
+:smiley:
 
