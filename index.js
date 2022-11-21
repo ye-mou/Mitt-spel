@@ -111,7 +111,7 @@ const textNodes = [
         text: 'Behåll ditt vapen',
         nextText: 3
       },
-      ,
+      
      
     ]
   },
@@ -216,7 +216,7 @@ const textNodes = [
   },
   {
     id: 11,
-    text: 'Monstret kom springande mot dig men med ditt spjut träffade du monstrets hjärta. Inget mera monster. DU befriade räddade byn och släppte ut alla fångarna som monstret tagit.Nu har du ditt eget slott. Det kommer blir tufft att städa men du har åtminstonde ett slott',
+    text: 'Monstret kom springande mot dig men med ditt spjut träffade du monstrets hjärta. Inget mera monster. DU befriade byn och släppte ut alla fångarna som monstret tagit.Nu har du ditt eget slott. Det kommer blir tufft att städa men du har åtminstonde ett slott',
     options: [
       {
         text: 'Nu är du en hjälte. Spela igen?.',
