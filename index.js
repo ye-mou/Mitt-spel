@@ -14,31 +14,41 @@ function startGame() {
   state = {}
   VisaTextNode(1)
 }
+
+/**
+ * Ändra till att visa text i våra textNodes.
+ * @param {}
+ */
 function VisaTextNode(textNodeIndex) {
   const textVal = textNodes.find(textVal => textVal.id === textNodeIndex)
-  textElement.innerText = textVal.text //Ändra till att visa text i våra textNodes
+  textElement.innerText = textVal.text 
 
   
-  /***
+  /**
    * För att ta bort "överflödiga alternativ = knappar, "buttons"
-   * @param {}
+   * @param {} - Tar bort Child för options buttons element
    */
   while (KnappVal.firstChild) {
     KnappVal.removeChild(KnappVal.firstChild)
   }
 
+  /** Skapa en ny knapp och sätt ny knapp = button
+   * @param {} - Lyssnar på funktionen "select option"
+   */
   textVal.options.forEach(option => {
     if (showOption(option)) {
-      const button = document.createElement('button') //Skapa en ny knapp och sätt ny knapp = button
+      const button = document.createElement('button') 
       button.innerText = option.text
       button.classList.add('btn')
-      button.addEventListener('click', () => selectOption(option))//Lyssnar på funktionen "select option"
+      button.addEventListener('click', () => selectOption(option))
       KnappVal.appendChild(button)
     }
   })
 }
 
-
+/**
+ * 
+ */
 
 function showOption(option) {
   return option.requiredState == null || option.requiredState(state)
@@ -76,6 +86,7 @@ const textNodes = [
         setState: { spjut: true },
         nextText: 2
       }
+      
     ]
   },
 
@@ -99,6 +110,12 @@ const textNodes = [
       {
         text: 'Behåll ditt vapen',
         nextText: 3
+      },
+      ,
+      {
+        text: 'Ta guld',
+        setState: { guld: true },
+        nextText: 5
       }
     ]
   },
@@ -158,11 +175,7 @@ const textNodes = [
         text: 'Fly!',
         nextText: 8
       },
-      {
-        text: 'Släng guld på den',
-        requiredState: (currentState) => currentState.guld,
-        nextText: 9
-      },
+      
       {
         text: 'Slåss med ditt svärd',
         requiredState: (currentState) => currentState.sword,
