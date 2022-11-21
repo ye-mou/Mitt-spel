@@ -18,6 +18,6 @@ Det har varit kul att göra detta men väldigt utmanande.
 * Det behövs inte för det är det fiffiga med ett webbbaserat spel. DU spelar den direkt på skärmen och behöver inte ladda någon externa programvara
 
 ## Hur du spelar
-DU väljer ett vapen som du sedan har med dig i nästa scen
+DU väljer ett vapen som du sedan har med dig i nästa scen. Ditt mål är att klara dig genom hela spelat och utmana monstret med rätt vapen. Det finns en känd bugg i spelet som gör att när du möter draken har du bara ett alternativ
 
 
