@@ -8,10 +8,10 @@ function startGame() {
   state = {}
   VisaTextNode(1)
 }
-
 function VisaTextNode(textNodeIndex) {
   const textVal = textNodes.find(textVal => textVal.id === textNodeIndex)
   textElement.innerText = textVal.text //Ändra till att visa text i våra textNodes
+
   
   /***
    * För att ta bort "överflödiga alternativ = knappar, buttons"
@@ -25,7 +25,7 @@ function VisaTextNode(textNodeIndex) {
       const button = document.createElement('button') //Skapa en ny knapp och sätt ny knapp = button
       button.innerText = option.text
       button.classList.add('btn')
-      button.addEventListener('click', () => selectOption(option))//Lyssnar på funktionen rad 40/"select option"
+      button.addEventListener('click', () => selectOption(option))//Lyssnar på funktionen "select option"
       KnappVal.appendChild(button)
     }
   })
@@ -37,6 +37,9 @@ function showOption(option) {
   return option.requiredState == null || option.requiredState(state)
 }
 
+/***
+ * En funktion för att gå tillbaka till början.NextText sätts till -1. Detta är mindre än 0. Börja om
+ */
 function selectOption(option) {
   const nextTextNodeId = option.nextText
   if (nextTextNodeId <= 0) {
@@ -63,20 +66,22 @@ const textNodes = [
       }
     ]
   },
+
+  
   {
     id: 2,
     text: 'Draken vill inget illa utan erbjuder dig att byta ditt vapen mot guld och diamanter. Vad vill du göra',
     options: [
       {
         text: 'Byt svärdet mot guld och diamanter',
-        requiredState: (currentState) => currentState.blueGoo,
+        requiredState: (currentState) => currentState.guld,
         setState: { sword: false, spjut: false , guld:true},
         nextText: 3
       },
       {
         text: 'Byt spjutet mot guld och diamanter',
-        requiredState: (currentState) => currentState.blueGoo,
-        setState: { sword: false, guld: true },
+        requiredState: (currentState) => currentState.guld,
+        setState: { sword: false, spju:false, guld: true },
         nextText: 3
       },
       {
@@ -115,7 +120,7 @@ const textNodes = [
   },
   {
     id: 5,
-    text: 'Du använder ditt svärd för att bryta dig in ett hus som verkar tomt. Du somnar men ägaren av huset kommer hem och kallar på bysoldaterna somm fångar dig och slänger in dig i en cell',
+    text: 'Du bryter in dig i ett hus som verkar tomt. Du somnar men ägaren av huset kommer hem och kallar på bysoldaterna somm fångar dig och slänger in dig i en cell',
     options: [
       {
         text: 'Börja om',
@@ -149,7 +154,7 @@ const textNodes = [
       {
         text: 'Slåss med ditt svärd',
         requiredState: (currentState) => currentState.sword,
-        nextText: 10
+        nextText: 9
       },
       {
         text: 'Kasta ditt sput mot monstret och försök träffa hjärtat',
@@ -190,7 +195,7 @@ const textNodes = [
   },
   {
     id: 11,
-    text: 'Monstret kom springande mot dig men med ditt spjut träffade du monstrets hjärta. Inget mera monster. DU befriade slotett och släppte ut fångarna på slottet.Nu har du ditt eget slott. Det kommer blir tufft att städa men du har ett slott',
+    text: 'Monstret kom springande mot dig men med ditt spjut träffade du monstrets hjärta. Inget mera monster. DU befriade räddade byn och släppte ut alla fångarna som monstret tagit.Nu har du ditt eget slott. Det kommer blir tufft att städa men du har åtminstonde ett slott',
     options: [
       {
         text: 'Nu är du en hjälte. Spela igen?.',
