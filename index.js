@@ -1,9 +1,15 @@
 
+/***
+ * @author Yehad Moussaoui <yehad.moussaoui@gmail.com>
+ */
 const textElement = document.getElementById('text')
 const KnappVal = document.getElementById('option-buttons')
 
 let state = {}
 
+/***
+ * @function myFunction - start the game
+ */
 function startGame() {
   state = {}
   VisaTextNode(1)
@@ -14,7 +20,8 @@ function VisaTextNode(textNodeIndex) {
 
   
   /***
-   * För att ta bort "överflödiga alternativ = knappar, buttons"
+   * För att ta bort "överflödiga alternativ = knappar, "buttons"
+   * @param {}
    */
   while (KnappVal.firstChild) {
     KnappVal.removeChild(KnappVal.firstChild)
@@ -39,6 +46,7 @@ function showOption(option) {
 
 /***
  * En funktion för att gå tillbaka till början.NextText sätts till -1. Detta är mindre än 0. Börja om
+ * @param {string} [nextTextNodeId] - Om värdet är mindre än noll så börja om
  */
 function selectOption(option) {
   const nextTextNodeId = option.nextText
@@ -49,6 +57,10 @@ function selectOption(option) {
   VisaTextNode(nextTextNodeId)
 }
 
+/***
+ * @constant {number}  - val för olika alternativ
+ * @param  {boolean} - Testar vilket state - sword, spjut
+ */
 const textNodes = [
   {
     id: 1,
