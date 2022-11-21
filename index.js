@@ -112,11 +112,7 @@ const textNodes = [
         nextText: 3
       },
       ,
-      {
-        text: 'Ta guld',
-        setState: { guld: true },
-        nextText: 5
-      }
+     
     ]
   },
   {
